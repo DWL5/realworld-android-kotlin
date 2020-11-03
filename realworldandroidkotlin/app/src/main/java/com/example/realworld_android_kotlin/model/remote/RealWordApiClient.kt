@@ -3,7 +3,7 @@ package com.example.realworld_android_kotlin.model.remote
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object RealWordAPIClient {
+object RealWordApiClient {
     private var instance : Retrofit? = null
 
     fun getInstance() : Retrofit {
