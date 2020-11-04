@@ -1,5 +1,6 @@
-package com.example.realworld_android_kotlin.model.remote
+package com.example.realworld_android_kotlin.model.remote.network
 
+import com.example.realworld_android_kotlin.model.remote.*
 import com.example.realworld_android_kotlin.model.remote.data.*
 import retrofit2.Call
 import retrofit2.http.*
