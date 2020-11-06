@@ -1,6 +1,5 @@
 package com.example.realworld_android_kotlin.model.remote.network
 
-import com.example.realworld_android_kotlin.model.remote.*
 import com.example.realworld_android_kotlin.model.remote.data.*
 import retrofit2.Call
 import retrofit2.Response
@@ -95,7 +94,7 @@ interface RealWordApi {
         @Path("slug") slug: String
     ): Call<Comments>
 
-    @DELETE(COMMENTS)
+    @DELETE(DELETE_COMMENTS)
     fun deleteComment(
         @Path("slug") slug: String,
         @Path("id") id: String

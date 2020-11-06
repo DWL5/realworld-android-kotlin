@@ -1,6 +1,5 @@
 package com.example.realworld_android_kotlin.model.remote.network
 
-import com.example.realworld_android_kotlin.model.remote.BASE_URL
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
