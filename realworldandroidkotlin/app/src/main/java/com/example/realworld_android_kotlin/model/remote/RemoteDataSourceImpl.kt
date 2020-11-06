@@ -1,15 +1,19 @@
 package com.example.realworld_android_kotlin.model.remote
 
 import com.example.realworld_android_kotlin.model.remote.data.*
+import com.example.realworld_android_kotlin.model.remote.network.RealWordApi
+import javax.inject.Inject
 
-class RemoteDataSourceImpl : RemoteDataSource {
-    override fun signIn(email: String, password: String): User {
-        TODO("Not yet implemented")
-    }
+class RemoteDataSourceImpl @Inject constructor(
+    private val realWordService: RealWordApi
+) : RemoteDataSource, BaseRemoteDataSource() {
 
-    override fun signUp(email: String, password: String, userName: String): User {
-        TODO("Not yet implemented")
-    }
+    override suspend fun signIn(email: String, password: String) =
+        getResult { realWordService.login(email, password) }
+
+    override suspend fun signUp(email: String, password: String, userName: String) =
+        getResult { realWordService.register(userName = userName, email = email, passwrod = password) }
+
 
     override fun getCurrentUser(): User {
         TODO("Not yet implemented")

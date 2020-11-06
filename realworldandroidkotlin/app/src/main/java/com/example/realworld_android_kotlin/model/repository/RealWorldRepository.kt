@@ -1,10 +1,13 @@
 package com.example.realworld_android_kotlin.model.repository
 
+import androidx.lifecycle.LiveData
+import com.example.realworld_android_kotlin.model.remote.Resource
 import com.example.realworld_android_kotlin.model.remote.data.*
+
 import kotlin.collections.HashMap
 
 interface RealWorldRepository {
-    fun signIn(email: String, password: String): User
+    fun signIn(email: String, password: String): LiveData<Resource<User>>
     fun signUp(email: String, password: String, userName: String): User
     fun getCurrentUser(): User
     fun updateUser(user: User): User

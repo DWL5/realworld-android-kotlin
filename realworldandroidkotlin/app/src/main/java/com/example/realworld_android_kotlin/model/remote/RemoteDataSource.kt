@@ -3,8 +3,8 @@ package com.example.realworld_android_kotlin.model.remote
 import com.example.realworld_android_kotlin.model.remote.data.*
 
 interface RemoteDataSource {
-    fun signIn(email: String, password: String): User
-    fun signUp(email: String, password: String, userName: String): User
+    suspend fun signIn(email: String, password: String): Resource<User>
+    suspend fun signUp(email: String, password: String, userName: String): Resource<User>
     fun getCurrentUser(): User
     fun updateUser(user: User): User
 

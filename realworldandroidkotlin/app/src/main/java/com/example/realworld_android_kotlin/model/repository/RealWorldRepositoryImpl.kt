@@ -1,10 +1,22 @@
 package com.example.realworld_android_kotlin.model.repository
 
-import com.example.realworld_android_kotlin.model.remote.data.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.liveData
+import com.example.realworld_android_kotlin.model.remote.RemoteDataSource
+import com.example.realworld_android_kotlin.model.remote.Resource
 
-class RealWorldRepositoryImpl : RealWorldRepository {
-    override fun signIn(email: String, password: String): User {
-        TODO("Not yet implemented")
+import com.example.realworld_android_kotlin.model.remote.data.*
+import kotlinx.coroutines.Dispatchers
+import javax.inject.Inject
+
+class RealWorldRepositoryImpl @Inject constructor(
+    private val remoteDataSource: RemoteDataSource
+) : RealWorldRepository {
+
+    override fun signIn(email: String, password: String): LiveData<Resource<User>> = liveData(Dispatchers.IO) {
+        emit(Resource.loading(null))
+        val result = remoteDataSource.signIn(email, password)
+        emit(result)
     }
 
     override fun signUp(email: String, password: String, userName: String): User {

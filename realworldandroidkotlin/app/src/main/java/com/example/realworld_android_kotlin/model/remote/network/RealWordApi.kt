@@ -3,6 +3,7 @@ package com.example.realworld_android_kotlin.model.remote.network
 import com.example.realworld_android_kotlin.model.remote.*
 import com.example.realworld_android_kotlin.model.remote.data.*
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.*
 import java.util.*
 import kotlin.collections.HashMap
@@ -12,14 +13,14 @@ interface RealWordApi {
     fun login(
         @Field("email") email: String,
         @Field("password") passwrod: String
-    ): Call<User>
+    ): Response<User>
 
     @POST(REGISTRATION)
     fun register(
         @Field("username") userName: String,
         @Field("email") email: String,
         @Field("password") passwrod: String
-    ): Call<User>
+    ): Response<User>
 
     @GET(USER)
     fun getCurrentUser(): Call<User>
