@@ -1,6 +1,8 @@
 package com.example.realworld_android_kotlin.model.remote.network
 
 import com.example.realworld_android_kotlin.model.remote.data.*
+import com.google.gson.JsonObject
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
@@ -9,9 +11,8 @@ import kotlin.collections.HashMap
 
 interface RealWordApi {
     @POST(AUTHENTICATION)
-    fun login(
-        @Field("email") email: String,
-        @Field("password") passwrod: String
+    suspend fun login(
+        @Body authentication: Authentication
     ): Response<User>
 
     @POST(REGISTRATION)

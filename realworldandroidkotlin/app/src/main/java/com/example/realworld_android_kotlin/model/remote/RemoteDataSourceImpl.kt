@@ -1,5 +1,6 @@
 package com.example.realworld_android_kotlin.model.remote
 
+import android.util.Log
 import com.example.realworld_android_kotlin.model.remote.data.*
 import com.example.realworld_android_kotlin.model.remote.network.RealWordApi
 import javax.inject.Inject
@@ -8,8 +9,12 @@ class RemoteDataSourceImpl @Inject constructor(
     private val realWordService: RealWordApi
 ) : RemoteDataSource, BaseRemoteDataSource() {
 
-    override suspend fun signIn(email: String, password: String) =
-        getResult { realWordService.login(email, password) }
+    private val TAG = RemoteDataSourceImpl::class.java.simpleName
+    override suspend fun signIn(email: String, password: String): Resource<User> {
+        Log.d(TAG, "signIn() called.")
+        return getResult { realWordService.login(Authentication(Authentication.User(email, password))) }
+    }
+
 
     override suspend fun signUp(email: String, password: String, userName: String) =
         getResult { realWordService.register(userName = userName, email = email, passwrod = password) }

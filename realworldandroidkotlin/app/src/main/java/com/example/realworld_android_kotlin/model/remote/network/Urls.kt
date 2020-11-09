@@ -1,6 +1,6 @@
 package com.example.realworld_android_kotlin.model.remote.network
 
-const val BASE_URL = "https://conduit.productionready.io/api/"
+const val BASE_URL = "https://conduit.productionready.io/"
 const val AUTHENTICATION = "api/users/login"
 const val REGISTRATION = "api/users"
 const val USER = "api/user"

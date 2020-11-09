@@ -1,5 +1,6 @@
 package com.example.realworld_android_kotlin.model.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.example.realworld_android_kotlin.model.remote.RemoteDataSource
@@ -13,11 +14,16 @@ class RealWorldRepositoryImpl @Inject constructor(
     private val remoteDataSource: RemoteDataSource
 ) : RealWorldRepository {
 
-    override fun signIn(email: String, password: String): LiveData<Resource<User>> = liveData(Dispatchers.IO) {
-        emit(Resource.loading(null))
-        val result = remoteDataSource.signIn(email, password)
-        emit(result)
-    }
+    private val TAG = RealWorldRepositoryImpl::class.simpleName
+
+    override fun signIn(email: String, password: String): LiveData<Resource<User>> =
+        liveData(Dispatchers.IO) {
+            emit(Resource.loading())
+            Log.d(TAG, "signIn Loading....")
+            val result = remoteDataSource.signIn(email, password)
+            emit(result)
+            Log.d(TAG, "signIn Result.... $result")
+        }
 
     override fun signUp(email: String, password: String, userName: String): User {
         TODO("Not yet implemented")
