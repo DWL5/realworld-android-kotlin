@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">realworld-android-kotlin</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="hint_user_email">email</string>
+    <string name="hint_user_pw">password</string>
+    <string name="btn_sign_in">sign in</string>
+    <string name="btn_cancel">cancel</string>
 </resources>
