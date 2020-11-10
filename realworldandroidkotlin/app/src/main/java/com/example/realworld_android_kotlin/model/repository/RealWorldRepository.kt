@@ -2,7 +2,7 @@ package com.example.realworld_android_kotlin.model.repository
 
 import androidx.lifecycle.LiveData
 import com.example.realworld_android_kotlin.model.remote.Resource
-import com.example.realworld_android_kotlin.model.remote.data.*
+import com.example.realworld_android_kotlin.model.data.*
 
 import kotlin.collections.HashMap
 

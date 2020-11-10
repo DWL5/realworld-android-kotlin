@@ -1,7 +1,7 @@
 package com.example.realworld_android_kotlin.model.remote
 
 import android.util.Log
-import com.example.realworld_android_kotlin.model.remote.data.*
+import com.example.realworld_android_kotlin.model.data.*
 import com.example.realworld_android_kotlin.model.remote.network.RealWordApi
 import javax.inject.Inject
 

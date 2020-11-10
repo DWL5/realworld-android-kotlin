@@ -1,6 +1,5 @@
 package com.example.realworld_android_kotlin.view.login
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,9 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.example.realworld_android_kotlin.R
 import com.example.realworld_android_kotlin.databinding.LoginFragmentBinding
-import com.example.realworld_android_kotlin.model.remote.data.Authentication
 import dagger.hilt.android.AndroidEntryPoint
-import javax.annotation.Resource
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
@@ -48,7 +45,7 @@ class LoginFragment : Fragment() {
                     }
 
                     com.example.realworld_android_kotlin.model.remote.Resource.Status.SUCCESS -> {
-                        
+
                     }
 
                     com.example.realworld_android_kotlin.model.remote.Resource.Status.ERROR -> {

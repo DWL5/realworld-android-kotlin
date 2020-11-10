@@ -6,7 +6,7 @@ import androidx.lifecycle.liveData
 import com.example.realworld_android_kotlin.model.remote.RemoteDataSource
 import com.example.realworld_android_kotlin.model.remote.Resource
 
-import com.example.realworld_android_kotlin.model.remote.data.*
+import com.example.realworld_android_kotlin.model.data.*
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
 

@@ -1,12 +1,7 @@
 package com.example.realworld_android_kotlin.view.login
 
-import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.realworld_android_kotlin.model.remote.Resource
-import com.example.realworld_android_kotlin.model.remote.data.User
 import com.example.realworld_android_kotlin.model.repository.RealWorldRepository
 
 class LoginViewModel @ViewModelInject constructor(

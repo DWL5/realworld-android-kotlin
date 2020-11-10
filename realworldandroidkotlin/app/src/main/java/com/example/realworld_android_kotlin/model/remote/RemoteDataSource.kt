@@ -1,6 +1,6 @@
 package com.example.realworld_android_kotlin.model.remote
 
-import com.example.realworld_android_kotlin.model.remote.data.*
+import com.example.realworld_android_kotlin.model.data.*
 
 interface RemoteDataSource {
     suspend fun signIn(email: String, password: String): Resource<User>

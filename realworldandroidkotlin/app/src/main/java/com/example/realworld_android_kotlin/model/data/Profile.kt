@@ -1,4 +1,4 @@
-package com.example.realworld_android_kotlin.model.remote.data
+package com.example.realworld_android_kotlin.model.data
 
 data class Profile(
     val bio: String,
