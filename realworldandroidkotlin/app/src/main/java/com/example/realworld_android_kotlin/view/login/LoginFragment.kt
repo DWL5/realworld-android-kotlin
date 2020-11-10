@@ -11,7 +11,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.example.realworld_android_kotlin.R
 import com.example.realworld_android_kotlin.databinding.LoginFragmentBinding
+import com.example.realworld_android_kotlin.model.remote.data.Authentication
 import dagger.hilt.android.AndroidEntryPoint
+import javax.annotation.Resource
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
@@ -41,6 +43,18 @@ class LoginFragment : Fragment() {
             viewModel.signIn(binding.editTextEmail.text.toString(),
                 binding.editTextPassword.text.toString()).observe(viewLifecycleOwner, Observer {
                 when(it.status) {
+                    com.example.realworld_android_kotlin.model.remote.Resource.Status.LOADING-> {
+
+                    }
+
+                    com.example.realworld_android_kotlin.model.remote.Resource.Status.SUCCESS -> {
+                        
+                    }
+
+                    com.example.realworld_android_kotlin.model.remote.Resource.Status.ERROR -> {
+
+                    }
+
                 }
             })
         }
