@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.realworld_android_kotlin"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -99,5 +99,25 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 
+    dependencies {
+        implementation "androidx.viewpager2:viewpager2:1.0.0"
+    }
+
+
+    //paging3 library
+    dependencies {
+        def paging_version = "3.0.0-alpha07"
+
+        implementation "androidx.paging:paging-runtime-ktx:$paging_version"
+
+        // alternatively - without Android dependencies for tests
+        testImplementation "androidx.paging:paging-common-ktx:$paging_version"
+
+        // Jetpack Compose Integration
+        implementation "androidx.paging:paging-compose:1.0.0-alpha01"
+    }
+
+    //recyclerview
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
 }

@@ -1,8 +1,6 @@
 package com.example.realworld_android_kotlin.model.remote.network
 
-import com.example.realworld_android_kotlin.model.remote.data.*
-import com.google.gson.JsonObject
-import org.json.JSONObject
+import com.example.realworld_android_kotlin.model.data.*
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
@@ -50,11 +48,11 @@ interface RealWordApi {
     ): Call<Profile>
 
     @GET(ARTICLES)
-    fun getArticles(
-        @QueryMap params: HashMap<String, Objects>,
+    suspend fun getArticles(
+        @QueryMap params: HashMap<String, Objects> = hashMapOf(),
         @Query("limit") limit: Int = 20,
         @Query("offset") offset: Int = 0
-    ): Call<Articles>
+    ): Response<Articles>
 
     @GET(FEED)
     fun getFeedArticles(

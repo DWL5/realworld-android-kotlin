@@ -3,6 +3,7 @@ package com.example.realworld_android_kotlin.di
 import com.example.realworld_android_kotlin.model.remote.network.BASE_URL
 import com.example.realworld_android_kotlin.model.remote.RemoteDataSource
 import com.example.realworld_android_kotlin.model.remote.RemoteDataSourceImpl
+import com.example.realworld_android_kotlin.model.remote.RemoteGlobalFeedPagingSource
 import com.example.realworld_android_kotlin.model.remote.network.RealWordApi
 import com.example.realworld_android_kotlin.model.repository.RealWorldRepository
 import com.example.realworld_android_kotlin.model.repository.RealWorldRepositoryImpl
@@ -23,7 +24,8 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+    fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor =
+        HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
     @Singleton
     @Provides
@@ -42,6 +44,10 @@ object AppModule {
     fun provideRealWorldService(retrofit: Retrofit): RealWordApi = retrofit.create(
         RealWordApi::class.java
     )
+
+    @Provides
+    fun provideRemoteGlobalFeedPagingSource(realWordApi: RealWordApi): RemoteGlobalFeedPagingSource =
+        RemoteGlobalFeedPagingSource(realWordApi)
 
 }
 
