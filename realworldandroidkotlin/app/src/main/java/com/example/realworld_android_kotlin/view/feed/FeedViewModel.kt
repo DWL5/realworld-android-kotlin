@@ -17,4 +17,5 @@ class FeedViewModel@ViewModelInject constructor(
     ) {
         remoteGlobalFeedPagingSource
     }.flow.cachedIn(viewModelScope)
+
 }

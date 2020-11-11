@@ -5,6 +5,12 @@
     android:id="@+id/main_navigation"
     app:startDestination="@id/feedPagerFragment">
 
+
+    <action
+        android:id="@+id/actionToFeedDetailFragment"
+        app:destination="@id/feedDetailFragment">
+    </action>
+
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.realworld_android_kotlin.view.login.LoginFragment"
@@ -13,5 +19,18 @@
         android:id="@+id/feedPagerFragment"
         android:name="com.example.realworld_android_kotlin.view.feed.FeedPagerFragment"
         android:label="fragment_feed_pager"
-        tools:layout="@layout/fragment_feed_pager" />
+        tools:layout="@layout/fragment_feed_pager" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/feedDetailFragment"
+        android:name="com.example.realworld_android_kotlin.view.feed.FeedDetailFragment"
+        android:label="fragment_feed_detail"
+        tools:layout="@layout/fragment_feed_detail">
+        <argument
+            android:name="article"
+            app:argType="com.example.realworld_android_kotlin.model.data.Article"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+    </fragment>
 </navigation>

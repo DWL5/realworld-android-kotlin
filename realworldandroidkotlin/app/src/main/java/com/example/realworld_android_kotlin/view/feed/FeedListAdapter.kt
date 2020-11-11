@@ -10,8 +10,13 @@ import com.example.realworld_android_kotlin.R
 import com.example.realworld_android_kotlin.databinding.ItemFeedBinding
 import com.example.realworld_android_kotlin.model.data.Article
 
-class FeedListAdapter(diffCallback: DiffUtil.ItemCallback<Article>) :
+class FeedListAdapter(diffCallback: DiffUtil.ItemCallback<Article>, private val onItemClickListener: OnItemClickListener) :
     PagingDataAdapter<Article, FeedListAdapter.FeedViewHolder>(diffCallback) {
+
+    interface OnItemClickListener {
+        fun clickItem(article: Article?)
+    }
+
     inner class FeedViewHolder(private val binding: ItemFeedBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(article: Article?) {
@@ -22,6 +27,9 @@ class FeedListAdapter(diffCallback: DiffUtil.ItemCallback<Article>) :
 
     override fun onBindViewHolder(holder: FeedViewHolder, position: Int) {
         holder.bind(getItem(position))
+        holder.itemView.setOnClickListener {
+            onItemClickListener.clickItem(getItem(position))
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedViewHolder {
