@@ -8,8 +8,11 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import com.example.realworld_android_kotlin.MainApplication
 import com.example.realworld_android_kotlin.R
 import com.example.realworld_android_kotlin.databinding.LoginFragmentBinding
+import com.example.realworld_android_kotlin.utils.KEY_AUTH_TOKEN
+import com.example.realworld_android_kotlin.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -45,9 +48,10 @@ class LoginFragment : Fragment() {
                     }
 
                     com.example.realworld_android_kotlin.model.remote.Resource.Status.SUCCESS -> {
-
+                        it.data?.let {user ->
+                            MainApplication.pref.setString(KEY_AUTH_TOKEN, user.token)
+                        }
                     }
-
                     com.example.realworld_android_kotlin.model.remote.Resource.Status.ERROR -> {
 
                     }

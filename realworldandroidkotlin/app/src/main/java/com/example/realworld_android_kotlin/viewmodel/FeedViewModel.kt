@@ -1,4 +1,4 @@
-package com.example.realworld_android_kotlin.view.feed
+package com.example.realworld_android_kotlin.viewmodel
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
