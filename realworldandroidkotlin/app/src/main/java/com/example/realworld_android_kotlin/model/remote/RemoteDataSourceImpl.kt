@@ -6,7 +6,7 @@ import com.example.realworld_android_kotlin.model.remote.network.RealWordApi
 import javax.inject.Inject
 
 class RemoteDataSourceImpl @Inject constructor(
-    private val realWordService: RealWordApi
+        private val realWordService: RealWordApi
 ) : RemoteDataSource, BaseRemoteDataSource() {
 
     private val TAG = RemoteDataSourceImpl::class.java.simpleName
@@ -17,7 +17,7 @@ class RemoteDataSourceImpl @Inject constructor(
 
 
     override suspend fun signUp(email: String, password: String, userName: String) =
-        getResult { realWordService.register(userName = userName, email = email, passwrod = password) }
+            getResult { realWordService.register(userName = userName, email = email, passwrod = password) }
 
 
     override fun getCurrentUser(): User {
@@ -68,19 +68,17 @@ class RemoteDataSourceImpl @Inject constructor(
         TODO("Not yet implemented")
     }
 
-    override suspend fun getCommentsFromArticle(slug: String): Resource<Comments> {
-        return getResult { realWordService.getCommentsFromArticle(slug) }
-    }
+    override suspend fun getCommentsFromArticle(slug: String) = getResult { realWordService.getCommentsFromArticle(slug) }
+
 
     override fun deleteComment(article: Article, comment: Comment) {
         TODO("Not yet implemented")
     }
 
-    override fun favoriteArticle(article: Article) {
-        TODO("Not yet implemented")
-    }
+    override suspend fun favoriteArticle(slug: String) = getResult { realWordService.postFavoriteArticle(slug) }
 
-    override fun unFavoriteArticle(article: Article) {
+
+    override suspend fun unFavoriteArticle(slug: String): Resource<Article> {
         TODO("Not yet implemented")
     }
 

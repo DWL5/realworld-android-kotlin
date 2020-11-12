@@ -23,8 +23,8 @@ interface RemoteDataSource {
     suspend fun getCommentsFromArticle(slug: String): Resource<Comments>
     fun deleteComment(article: Article, comment: Comment)
 
-    fun favoriteArticle(article: Article)
-    fun unFavoriteArticle(article: Article)
+    suspend fun favoriteArticle(slug: String) : Resource<Article>
+    suspend fun unFavoriteArticle(slug: String) : Resource<Article>
 
     fun getTags(): Tags
 }

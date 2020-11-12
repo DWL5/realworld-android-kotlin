@@ -23,4 +23,6 @@ class FeedViewModel@ViewModelInject constructor(
     }.flow.cachedIn(viewModelScope)
 
     fun getComments(slug:String) = repository.getCommentsFromArticle(slug)
+    fun postFavoriteArticle(slug: String) = repository.favoriteArticle(slug)
+    fun postUnFavoriteArticle(slug: String) = repository.unFavoriteArticle(slug)
 }

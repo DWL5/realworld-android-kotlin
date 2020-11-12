@@ -87,12 +87,16 @@ class RealWorldRepositoryImpl @Inject constructor(
         TODO("Not yet implemented")
     }
 
-    override fun favoriteArticle(article: Article) {
-        TODO("Not yet implemented")
+    override fun favoriteArticle(slug: String): LiveData<Resource<Article>> = liveData(Dispatchers.IO) {
+        emit(Resource.loading())
+        val result = remoteDataSource.favoriteArticle(slug)
+        emit(result)
     }
 
-    override fun unFavoriteArticle(article: Article) {
-        TODO("Not yet implemented")
+    override fun unFavoriteArticle(slug: String): LiveData<Resource<Article>> = liveData(Dispatchers.IO) {
+        emit(Resource.loading())
+        val result = remoteDataSource.unFavoriteArticle(slug)
+        emit(result)
     }
 
     override fun getTags(): Tags {

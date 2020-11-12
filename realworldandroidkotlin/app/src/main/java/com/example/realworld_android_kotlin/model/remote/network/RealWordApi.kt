@@ -100,14 +100,14 @@ interface RealWordApi {
     )
 
     @POST(FAVORITE_ARTICLE)
-    fun postFavoriteArticle(
+    suspend fun postFavoriteArticle(
         @Path("slug") slug: String
-    ): Call<Article>
+    ): Response<Article>
 
     @DELETE(FAVORITE_ARTICLE)
-    fun postUnFavoriteArticle(
+    suspend fun postUnFavoriteArticle(
         @Path("slug") slug: String
-    ): Call<Article>
+    ): Response<Article>
 
     @GET(TAGS)
     fun getTags(): Call<Tags>
