@@ -24,7 +24,7 @@ interface RealWorldRepository {
     fun deleteArticle(article: Article)
 
     fun addCommentToArticle(article: Article, body: String): Comment
-    fun getCommentsFromArticle(article: Article): Comments
+    fun getCommentsFromArticle(slug: String):  LiveData<Resource<Comments>>
     fun deleteComment(article: Article, comment: Comment)
 
     fun favoriteArticle(article: Article)

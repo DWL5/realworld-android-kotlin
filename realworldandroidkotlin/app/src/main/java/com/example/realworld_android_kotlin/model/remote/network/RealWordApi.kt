@@ -91,7 +91,7 @@ interface RealWordApi {
     @GET(COMMENTS)
     fun getCommentsFromArticle(
         @Path("slug") slug: String
-    ): Call<Comments>
+    ): Response<Comments>
 
     @DELETE(DELETE_COMMENTS)
     fun deleteComment(

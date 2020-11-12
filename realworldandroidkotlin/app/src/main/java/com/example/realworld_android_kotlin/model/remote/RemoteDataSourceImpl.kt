@@ -68,8 +68,8 @@ class RemoteDataSourceImpl @Inject constructor(
         TODO("Not yet implemented")
     }
 
-    override fun getCommentsFromArticle(article: Article): Comments {
-        TODO("Not yet implemented")
+    override suspend fun getCommentsFromArticle(slug: String): Resource<Comments> {
+        return getResult { realWordService.getCommentsFromArticle(slug) }
     }
 
     override fun deleteComment(article: Article, comment: Comment) {

@@ -11,19 +11,19 @@ import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
 
 class RealWorldRepositoryImpl @Inject constructor(
-    private val remoteDataSource: RemoteDataSource
+        private val remoteDataSource: RemoteDataSource
 ) : RealWorldRepository {
 
     private val TAG = RealWorldRepositoryImpl::class.simpleName
 
     override fun signIn(email: String, password: String): LiveData<Resource<User>> =
-        liveData(Dispatchers.IO) {
-            emit(Resource.loading())
-            Log.d(TAG, "signIn Loading....")
-            val result = remoteDataSource.signIn(email, password)
-            emit(result)
-            Log.d(TAG, "signIn Result.... $result")
-        }
+            liveData(Dispatchers.IO) {
+                emit(Resource.loading())
+                Log.d(TAG, "signIn Loading....")
+                val result = remoteDataSource.signIn(email, password)
+                emit(result)
+                Log.d(TAG, "signIn Result.... $result")
+            }
 
     override fun signUp(email: String, password: String, userName: String): User {
         TODO("Not yet implemented")
@@ -77,8 +77,10 @@ class RealWorldRepositoryImpl @Inject constructor(
         TODO("Not yet implemented")
     }
 
-    override fun getCommentsFromArticle(article: Article): Comments {
-        TODO("Not yet implemented")
+    override fun getCommentsFromArticle(slug: String): LiveData<Resource<Comments>> = liveData(Dispatchers.IO) {
+        emit(Resource.loading())
+        val result = remoteDataSource.getCommentsFromArticle(slug)
+        emit(result)
     }
 
     override fun deleteComment(article: Article, comment: Comment) {
